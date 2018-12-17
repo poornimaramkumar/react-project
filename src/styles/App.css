@@ -1,4 +1,88 @@
-h1 {
-    color: #27aedb;
-    text-align: center;
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+body,
+html,
+div.board,
+div#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div.board {
+  background-color: 'brown';
+  width: 100%;
+  background: #eab92d;
+}
+
+div.note {
+  height: 150px;
+  width: 150px;
+  background-color: yellow;
+  margin: 2px 0;
+  position: relative;
+  cursor: -webkit-grab;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+  overflow: hidden;
+}
+
+div.note:active {
+  cursor: -webkit-grabbing;
+}
+
+div.note p {
+  margin: 0;
+  font-size: 22px;
+  padding: 5px;
+  font-family: "Shadows Into Light", Arial;
+}
+
+div.note:hover > span {
+  opacity: 1;
+}
+
+div.note > span {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity .25s linear;
+}
+
+button + button {
+  margin: 5px;
+}
+
+.btn {
+	margin-bottom: 10px !important;
+}
+
+.edit-btn {
+	margin: 10px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.remove-btn {
+	margin: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+div.note > textarea {
+  height: 75%;
+  background: rgba(255, 255, 255, .5);
+}
+
+.board > button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
 }
