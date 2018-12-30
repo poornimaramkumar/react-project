@@ -1,5 +1,33 @@
 # Node Modules
-/node_modules
+node_modules
 
 # Distribution
-/dist
+dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# build folders
+lib
+public
+
+# NPM packed packages
+*.tgz
+
+#macthings
+.DS_Store
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules
+jspm_packages
+
+
+# IDE
+.idea
+stats.json
+.vscode
