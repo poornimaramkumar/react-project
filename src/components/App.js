@@ -1,77 +1,50 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Button } from "react-bootstrap";
-
- import '../styles/App.css';
+import { simpleAction, secondAction } from '../actions/actions';
+import '../styles/App.css';
 
 class App extends Component {
+
 	constructor(props) {
 		super(props);
-		this.edit = this.edit.bind(this);
-		this.save = this.save.bind(this);
-		this.state = {
-			editing : false
-		};
+		this.simpleAction = this.simpleAction.bind(this);
+		this.secondAction = this.secondAction.bind(this);
 	}
 
-	edit() {
-		this.setState({editing: true});
+	simpleAction() {
+		this.props.simpleAction();
+	};
+
+	secondAction() {
+		this.props.secondAction();
 	}
-
-	save() {
-		this.setState({editing: false});
-	}
-
-	remove() {
-		alert("Removing the note");
-	}
-
-	// renderForm() {
-	// 	return(
-	// 		<div className="note">
-	// 			<textarea></textarea>
-	// 			<Button onClick={this.save}>SAVE</Button>
-	// 		</div>
-	// 	)
-	// }
-
-	// renderDisplay() {
-	// 	return (
-	// 		<div className="note">
-	// 			<p>{this.props.children}</p>
-	// 			<span>
-	// 				<Button onClick={this.edit}>Edit</Button>
-	// 				<Button onClick={this.remove}>X</Button>
-	// 			</span>
-	// 		</div>
-	// 	)
-	// }
 
 	render() {
 		return (
-			<div>
-				<div className="note" id="#mynote">
-					<p>
-						Hello World
-					</p>
-					<Button
-						className="pull-right edit-btn"
-						bsStyle="info"
-						onClick={this.edit}
-					>
-						Edit
-					</Button>
-					<Button
-						className="pull-left remove-btn"
-						bsStyle="danger"
-						onClick={this.remove}
-					>
-						X
-					</Button>
-				</div>
+			<div className="App">
+				<header className="App-header">
+					{/* <img src={logo} className="App-logo" alt="logo" /> */}
+					<h1 className="App-title">Welcome to React</h1>
+				</header>
+				<p className="App-intro">
+					To get started, edit <code>src/App.js</code> and save to reload
+				</p>
+				<Button bsStyle="info" onClick={this.simpleAction}>Test redux action</Button>
+				<Button bsStyle="primary" onClick={this.secondAction}>Test second action</Button>
+				<pre>
+					{JSON.stringify(this.props)}
+				</pre>
 			</div>
-		)
-
+		);
 	}
 }
 
-export default App;
+const mapStateToProps = state => ({
+	...state
+});
+const mapDispatchToProps = dispatch => ({
+	simpleAction: () => dispatch(simpleAction()),
+	secondAction: () => dispatch(secondAction())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);
