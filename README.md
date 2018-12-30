@@ -1,2 +1,2 @@
-# react-project
-Try out new feature of reacts
+# react-redux
+Simple redux actions
